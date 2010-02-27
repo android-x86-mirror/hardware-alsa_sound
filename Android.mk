@@ -11,7 +11,6 @@ ifeq ($(strip $(BOARD_USES_ALSA_AUDIO)),true)
 
   LOCAL_ARM_MODE := arm
   LOCAL_CFLAGS := -D_POSIX_SOURCE
-  LOCAL_WHOLE_STATIC_LIBRARIES := libasound
 
   ifneq ($(ALSA_DEFAULT_SAMPLE_RATE),)
     LOCAL_CFLAGS += -DALSA_DEFAULT_SAMPLE_RATE=$(ALSA_DEFAULT_SAMPLE_RATE)
@@ -30,6 +29,7 @@ ifeq ($(strip $(BOARD_USES_ALSA_AUDIO)),true)
   LOCAL_STATIC_LIBRARIES += libaudiointerface
 
   LOCAL_SHARED_LIBRARIES := \
+    libasound \
     libcutils \
     libutils \
     libmedia \
